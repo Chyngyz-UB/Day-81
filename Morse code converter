@@ -1,0 +1,25 @@
+# This block of code defines a dictionary called morse_code that maps each character to its
+# corresponding Morse code representation. For example, 'A' maps to '.-', 'B' maps to '-...', and so on.
+# Additionally, the space character ' ' is mapped to '/' to represent word boundaries in Morse code.
+morse_code = {
+    'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....', 'I': '..',
+    'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
+    'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--', 'Z': '--..', '0': '-----',
+    '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..',
+    '9': '----.', ' ': '/'
+}
+
+
+def convert_to_morse_code(text):                        # converts text to Morse code
+    morse_code_text = ""                                # empty string to store the Morse code output
+    for char in text.upper():                           # iterates each character in 'text' & converts to UPPERCASE
+        if char in morse_code:                          # if char in morse_code
+            morse_code_text += morse_code[char] + " "   # appends the Morse code from the dictionary with a space char
+        else:                                           # if the char is not found
+            morse_code_text += char                     # simply appends the character itself to the morse_code_text
+    return morse_code_text                              # returns the Morse code representation of the input text
+
+
+user_input = input("Enter a string: ")                  # reads the user's input
+morse_code_output = convert_to_morse_code(user_input)   # calls the function & stores result in morse_code_output
+print("Morse code output:", morse_code_output)          # prints the Morse code output
